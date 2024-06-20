@@ -1,8 +1,14 @@
 export default function Home() {
 
     return (
-        <main>
-            <h1>Holamudno</h1>
+        <main className="flex justify-between">
+            <section>
+
+            </section>
+
+            <section>
+                
+            </section>
         </main>
     );
 }
