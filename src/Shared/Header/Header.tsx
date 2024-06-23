@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Navbar from "./Components/Navbar";
-import Dropdown from "./Components/Dropdown";
+import Navbar from "./Components/NavBar/Navbar";
+import Dropdown from "./Components/Dropdown/Dropdown";
 
 export default function Header() {
     const [isPhone, setIsPhone] = useState(false);
@@ -19,7 +19,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className="flex justify-between px-10 py-5 items-center shadow shadow-black">
+        <header className="flex justify-between px-5 sm:px-10 py-5 items-center shadow shadow-black">
             <div>
                 <img src="/img/Avatar.png" className="block rounded-full h-16 w-16" alt="Imagen de avatar" />
             </div>
