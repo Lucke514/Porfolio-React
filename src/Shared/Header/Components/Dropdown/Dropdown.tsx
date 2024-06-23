@@ -1,9 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemDropdown from "./ItemDropdown/ItemDropdown";
 import SvgDropdown from './SvgDropdown/SvgDropdown';
 
 export default function Dropdown() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isSelect, setIsSelect] = useState("");
+
+    //* -> Functions
+    function selectLink() {
+        const url = window.location.href;
+        const urlSplit = url.split("/");
+
+        switch(urlSplit[urlSplit.length - 1]) {
+            case "home":
+                setIsSelect("home-link");
+                break;
+            case "about":
+                setIsSelect("about-link");
+                break;
+            case "projects":
+                setIsSelect("projects-link");
+                break;
+            case "contact":
+                setIsSelect("contact-link");
+                break;
+            default:
+                setIsSelect("");
+                break;
+        }
+    }
+
+    //! -> Events
+    //* Evento para cambiar el link seleccionado dependiendo de la URL
+    function changeLink(e: any) {
+        setIsSelect(e.target.id);
+    }
+
+    //? -> UseEffect
+    useEffect(() => {
+        selectLink();
+    })
+
 
     return (
         <main>
@@ -17,7 +54,10 @@ export default function Dropdown() {
                         id="dropdownHover"
                         className="z-10 fixed right-10 divide-y bg-white rounded-lg shadow">
                         <ul aria-labelledby="dropdownHoverButton">
-                            <ItemDropdown text="Inicio" link="home" isSelected={false} event={() => setIsDropdownOpen(false)} />
+                            <ItemDropdown text="Inicio" link="home" isSelected={isSelect === "home-link" ? true : false} event={changeLink} />
+                            <ItemDropdown text="Sobre mí" link="about" isSelected={isSelect === "about-link" ? true : false} event={changeLink} />
+                            <ItemDropdown text="Proyectos" link="projects" isSelected={isSelect === "projects-link" ? true : false} event={changeLink} />
+                            <ItemDropdown text="Contacto" link="contact" isSelected={isSelect === "contact-link" ? true : false} event={changeLink} />
                         </ul>
                     </div>
                 )}
