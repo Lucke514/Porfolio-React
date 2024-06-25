@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
+import SvgDropdown from "./SvgDropdown/SvgDropdown";
 import ItemDropdown from "./ItemDropdown/ItemDropdown";
-import SvgDropdown from './SvgDropdown/SvgDropdown';
 
 export default function Dropdown() {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [isSelect, setIsSelect] = useState("");
 
-    //* -> Functions
+    //* -> Funcion para abrir y cerrar el dropdown
+    function handleOpen(event: MouseEvent | any) {
+        event.stopPropagation();
+        setIsOpen(!isOpen);
+    }
+
+    //* -> Funcion para seleccionar el link actual de la url
     function selectLink() {
         const url = window.location.href;
         const urlSplit = url.split("/");
 
-        switch(urlSplit[urlSplit.length - 1]) {
+        switch (urlSplit[urlSplit.length - 1]) {
             case "home":
-                setIsSelect("home-link");
+                setIsSelect("home");
                 break;
             case "about":
-                setIsSelect("about-link");
+                setIsSelect("about");
                 break;
             case "projects":
-                setIsSelect("projects-link");
+                setIsSelect("projects");
                 break;
             case "contact":
-                setIsSelect("contact-link");
+                setIsSelect("contact");
                 break;
             default:
                 setIsSelect("");
@@ -30,38 +36,41 @@ export default function Dropdown() {
         }
     }
 
-    //! -> Events
-    //* Evento para cambiar el link seleccionado dependiendo de la URL
     function changeLink(e: any) {
         setIsSelect(e.target.id);
+        setIsOpen(false);
     }
 
-    //? -> UseEffect
+    //* -> Effects
     useEffect(() => {
         selectLink();
-    })
+    }, []);
 
+    function handleClose() {
+        setIsOpen(false);
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleClose);
+        return () => {
+            document.removeEventListener('click', handleClose);
+        }
+    }, [isOpen]);
 
     return (
-        <main>
-            <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative">
-                <button id="dropdownHoverButton" className="text-white focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center " type="button" >
-                    <SvgDropdown isOpen={isDropdownOpen} />
-                </button>
+        <div className="relative z-10">
+            <button className="flex items-center gap-2" onClick={handleOpen}>
+                <SvgDropdown isOpen={isOpen} />
+            </button>
 
-                {isDropdownOpen && (
-                    <div
-                        id="dropdownHover"
-                        className="z-10 fixed right-10 divide-y bg-white rounded-lg shadow">
-                        <ul aria-labelledby="dropdownHoverButton">
-                            <ItemDropdown text="Inicio" link="home" isSelected={isSelect === "home-link" ? true : false} event={changeLink} />
-                            <ItemDropdown text="Sobre mí" link="about" isSelected={isSelect === "about-link" ? true : false} event={changeLink} />
-                            <ItemDropdown text="Proyectos" link="projects" isSelected={isSelect === "projects-link" ? true : false} event={changeLink} />
-                            <ItemDropdown text="Contacto" link="contact" isSelected={isSelect === "contact-link" ? true : false} event={changeLink} />
-                        </ul>
-                    </div>
-                )}
+            <div className={`${isOpen ? 'absolute' : 'hidden'} right-0 bg-white rounded-lg shadow-lg`}>
+                <ul className="flex flex-col">
+                    <ItemDropdown isSelected={isSelect == "home"} text="Home" link="home" event={changeLink} />
+                    <ItemDropdown isSelected={isSelect == "about"} text="About" link="about" event={changeLink} />
+                    <ItemDropdown isSelected={isSelect == "projects"} text="Projects" link="projects" event={changeLink} />
+                    <ItemDropdown isSelected={isSelect == "contact"} text="Contact" link="contact" event={changeLink} />
+                </ul>
             </div>
-        </main>
-    );
+        </div>
+    )
 }
