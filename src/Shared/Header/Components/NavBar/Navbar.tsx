@@ -43,7 +43,7 @@ export default function Navbar() {
     //? -> Render
     return(
         <nav className="flex justify-center gap-5 items-center">
-            <ItemNavBar isSelected={isSelect === "home-link"} text="Inicio" link="home" event={changeLink}/>
+            <ItemNavBar isSelected={isSelect === "home-link" || isSelect === ""} text="Inicio" link="home" event={changeLink}/>
             
             <ItemNavBar isSelected={isSelect === "about-link"} text="Sobre mí" link="about" event={changeLink}/>
             

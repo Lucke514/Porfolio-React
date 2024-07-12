@@ -7,9 +7,7 @@ export default function Layout() {
     return (
         <React.Fragment>
             <Header />
-                <main className="min-h-[75vh] dark text-foreground bg-background">
                     <Outlet />
-                </main>
             <Footer />
         </React.Fragment>
     )

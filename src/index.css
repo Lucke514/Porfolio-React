@@ -14,3 +14,15 @@ html {
 ::-webkit-scrollbar {
     width: 10px;
 }
+
+/* Cambiar el puntero del mouse por el que esta en la 
+    *path /puntero/puntero.png 
+*/
+
+body {
+    cursor: url('/img/puntero/puntero.png'), auto;
+}
+
+a:hover, button:hover {
+    cursor: url('/img/puntero/punteroHover.png'), auto;
+}

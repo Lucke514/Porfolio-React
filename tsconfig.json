@@ -17,6 +17,7 @@
     "paths": {
       "@Shared/*": ["./src/Shared/*"],
       "@Pages/*": ["./src/Pages/*"],
+      "@Interfaces/*": ["./src/Interfaces/*"],
       "@Components/*": ["./src/Components/*"],
       "@Latout/*": ["./src/Layout/*"],
     },
