@@ -20,6 +20,7 @@
       "@Interfaces/*": ["./src/Interfaces/*"],
       "@Components/*": ["./src/Components/*"],
       "@Latout/*": ["./src/Layout/*"],
+      "@Styles/*": ["./src/Styles/*"],
     },
     /* Linting */
     "strict": true,

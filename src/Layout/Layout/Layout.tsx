@@ -7,7 +7,7 @@ export default function Layout() {
     return (
         <React.Fragment>
             <Header />
-                    <Outlet />
+                <Outlet />
             <Footer />
         </React.Fragment>
     )

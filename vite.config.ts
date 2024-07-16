@@ -10,6 +10,7 @@ export default defineConfig({
       '@Interfaces': path.resolve(__dirname, 'src/Interfaces'),
       '@Pages': path.resolve(__dirname, 'src/Pages'),
       '@Layout': path.resolve(__dirname, 'src/Layout'),
+      '@Styles': path.resolve(__dirname, 'src/Styles'),
     },
   },
   plugins: [react()],

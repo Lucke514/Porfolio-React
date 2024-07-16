@@ -1,13 +1,23 @@
+//? -> Importacion de los modulos de react y react-dom/client
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import Routes from './Routes.tsx'
-import { RouterProvider } from 'react-router-dom'
+
+//? -> Importacion de los estilos globales
+import '@Styles/index.css'
+import '@Styles/Cloudflare.css'
+import '@Styles/Cloudflare_second.css'
+
+//? -> Importacion de la libreria de AOS
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-//! -> Inicializamos la libreria de AOS
+//* -> Inicializamos la libreria de AOS
 AOS.init()
+
+//? -> Importacion de los componentes de la aplicacion
+import Routes from './Routes.tsx'
+import { RouterProvider } from 'react-router-dom'
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

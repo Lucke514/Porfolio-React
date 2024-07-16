@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <main className="px-5 md:px-44 flex gap-x-10 items-center" data-aos="fade-right" data-aos-duration="1000">
             <section className="min-h-[67.5vh] flex-col flex justify-center">
-                <h1 className="text-7xl font-bold">
+                <h1 className="text-6xl md:text-7xl font-bold">
                     <span className="text-red-500">L</span>ucas Gonzalez
                 </h1>
                 <h2 className="font-semibold sm:text-lg">

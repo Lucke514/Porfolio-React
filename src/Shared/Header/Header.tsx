@@ -19,7 +19,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className="flex justify-between px-5 sm:px-10 py-5 items-center shadow shadow-black">
+        <header className="flex justify-between px-5 sm:px-10 py-5 items-center shadow-black shadow-sm">
             <div>
                 <img src="/img/Avatar.png" className="block rounded-full h-16 w-16" alt="Imagen de avatar" />
             </div>
