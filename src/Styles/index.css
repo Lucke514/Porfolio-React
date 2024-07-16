@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 :root {
-    color-scheme: light dark;
+    color-scheme: dark light;
+    --bg-dark: #13151a;
+    --bg-light: #f0f0f0;
 }
+
 
 html {
     scroll-behavior: smooth;
-    background-color: #13151a;
+    background-color: var(--bg-dark);
 }
 
 ::-webkit-scrollbar {

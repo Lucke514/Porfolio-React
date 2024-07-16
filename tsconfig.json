@@ -21,6 +21,7 @@
       "@Components/*": ["./src/Components/*"],
       "@Latout/*": ["./src/Layout/*"],
       "@Styles/*": ["./src/Styles/*"],
+      "@Services/*": ["./src/Services/*"],
     },
     /* Linting */
     "strict": true,

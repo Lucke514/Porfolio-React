@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom/client'
 
 //? -> Importacion de los estilos globales
 import '@Styles/index.css'
-import '@Styles/Cloudflare.css'
-import '@Styles/Cloudflare_second.css'
 
 //? -> Importacion de la libreria de AOS
 import AOS from 'aos';
